@@ -1,14 +1,11 @@
-FROM n8nio/n8n
+FROM n8nio/n8n:latest
 
-# Porta dinâmica do Render
-ENV N8N_PORT=${PORT}
-ENV N8N_BASIC_AUTH_ACTIVE=true
-ENV N8N_BASIC_AUTH_USER=admin
-ENV N8N_BASIC_AUTH_PASSWORD=senha123
-ENV N8N_HOST=0.0.0.0
-ENV NODE_ENV=production
+# Define a porta do Render
+ENV N8N_PORT=5432
+ENV PORT=5432
 
-# Expor a porta
-EXPOSE ${PORT}
+# Define o timezone
+ENV GENERIC_TIMEZONE=America/Sao_Paulo
 
+# Comando para iniciar o n8n
 CMD ["n8n", "start"]
